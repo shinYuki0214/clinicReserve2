@@ -10,10 +10,17 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
+                @if(Auth::check())
+                <li class="nav-item"><a href="#" class="nav-link">予約状況</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">診療時間設定</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">予約追加</a></li>
+                <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
+                @else
                 {{-- ユーザ登録ページへのリンク --}}
                 <li class="nav-item">{!! link_to_route('signup.get', '医院登録', [], ['class' => 'nav-link']) !!}</li>
                 {{-- ログインページへのリンク --}}
                 <li class="nav-item"><a href="#" class="nav-link">ログイン</a></li>
+                @endif
             </ul>
         </div>
     </nav>
