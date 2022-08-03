@@ -11,9 +11,12 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if(Auth::check())
-                <li class="nav-item"><a href="#" class="nav-link">予約状況</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">診療時間設定</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">予約追加</a></li>
+                <!--start管理者権限のみの表示-->
+                <li class="nav-item">
+                    {{--医院一覧ページへのリンク --}}
+                    {!! link_to_route('users.index', '医院一覧', [], ['class'=>'nav-link']) !!}
+                </li>
+                <!--end 管理者権限のみの表示-->
                 <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                 @else
                 {{-- ユーザ登録ページへのリンク --}}
