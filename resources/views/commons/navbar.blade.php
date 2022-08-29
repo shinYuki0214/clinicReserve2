@@ -11,18 +11,19 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if(Auth::check())
-                <!--start管理者権限のみの表示-->
-                <li class="nav-item">
-                    {{--医院一覧ページへのリンク --}}
-                    {!! link_to_route('users.index', '医院一覧', [], ['class'=>'nav-link']) !!}
-                </li>
-                <!--end 管理者権限のみの表示-->
-                <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
+                    @if(Auth::user()->role == 1)
+                        <!--start管理者権限のみの表示-->
+                        <li class="nav-item">
+                            {{--医院一覧ページへのリンク --}}
+                            {!! link_to_route('users.index', '医院一覧', [], ['class'=>'nav-link']) !!}
+                        </li>
+                        <!--end 管理者権限のみの表示-->
+                    @endif
+                    <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト',[], ['class' => 'nav-link']) !!}</li>
                 @else
-                {{-- ユーザ登録ページへのリンク --}}
-                <li class="nav-item">{!! link_to_route('signup.get', '医院登録', [], ['class' => 'nav-link']) !!}</li>
+            
                 {{-- ログインページへのリンク --}}
-                <li class="nav-item"><a href="#" class="nav-link">ログイン</a></li>
+                <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
                 @endif
             </ul>
         </div>

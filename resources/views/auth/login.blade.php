@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
     <div class="text-center">
@@ -17,9 +17,6 @@
                 </div>
                 {!! Form::submit('Log in',['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
-            
-            {{-- ユーザ登録ページへのリンク --}}
-            <p class="mt-2">New user?{!! link_to_route('signup.get', 'Sign up now!') !!}</p>
         </div>
     </div>
 @endsection

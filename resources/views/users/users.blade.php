@@ -4,12 +4,10 @@
             <li class="media">
                 <div class="media-body">
                     <div>
-                        {{ $user->name }}
-                    </div>
-                    <div>
                         {{-- ユーザ詳細ページへのリンク --}}
                         <p>{!! link_to_route('users.show', $user->name,['user' => $user->id]) !!}</p>
                     </div>
+                    
                 </div>
             </li>
         @endforeach
